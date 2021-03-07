@@ -35,12 +35,12 @@ end
 gem 'foreman'
 gem 'dotenv'
 gem 'unicorn'
+gem 'test-unit', '~> 3.0'
 
 group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'sqlite3', '~> 1.3.5'
-  gem 'test-unit', '~> 3.0'
 end
 
 ruby '2.6.6'
