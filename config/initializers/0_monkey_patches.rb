@@ -59,3 +59,15 @@ module Arel
     end
   end
 end
+
+# Monkey patch activerecord 3.2.22.5 for PostgreSQL => 12
+# https://stackoverflow.com/q/58763542
+
+class ActiveRecord::ConnectionAdapters::PostgreSQLAdapter
+  def set_standard_conforming_strings
+    old, self.client_min_messages = client_min_messages, 'warning'
+    execute('SET standard_conforming_strings = on', 'SCHEMA') rescue nil
+  ensure
+    self.client_min_messages = old
+  end
+end
