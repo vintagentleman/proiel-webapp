@@ -33,10 +33,14 @@ $navbarborder:  $boxborder
 //:focus
 //  outline: 0
 
-//:lang(chu)
-//  font-family: "Kliment Std", "RomanCyrillic Std", "Dilyana", "Menaion", "Menaion Medieval", "Gentium", "Code2000"
-
 /* "Typography" */
+
+@font-face
+  font-family: AgioUnicode
+  src: font-url("AgioUnicode.ttf") format("truetype")
+
+[lang=chu]
+  font-family: AgioUnicode, sans-serif
 
 tt
   font-family: proportional

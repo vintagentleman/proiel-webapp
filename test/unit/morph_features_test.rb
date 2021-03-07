@@ -236,12 +236,14 @@ class MorphFeaturesTestCase < ActiveSupport::TestCase
       "foo,Nb,chu,-d---ma--i",
       "foo,Nb,chu,-p---ma--i",
       "foo,Nb,chu,-s---ma--i",
+      "foo,Nb,chu,-x---ma--i"
     ], MorphFeatures.new('foo,Nb,chu', '-----ma--i').completions.map(&:to_s).sort
 
     assert_equal [
       "foo,Nb,chu,-d---mn--i",
       "foo,Nb,chu,-p---mn--i",
-      "foo,Nb,chu,-s---mn--i"
+      "foo,Nb,chu,-s---mn--i",
+      "foo,Nb,chu,-x---mn--i"
     ], MorphFeatures.new('foo,Nb,chu', '-----mn--i').completions.map(&:to_s).sort
   end
 end

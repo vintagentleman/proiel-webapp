@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.22.2'
+gem 'rails', '3.2.22.5'
 gem 'json'
-gem 'sass-rails'
+gem 'sass', '~> 3.1.10'
+gem 'sass-rails', '~> 3.2.6'
 gem 'proiel'
 gem 'rack-utf8_sanitizer'
 
@@ -15,7 +16,7 @@ gem 'ransack', '~> 0.7.2'
 
 gem 'unicode'
 
-gem 'builder' # builder is faster than Nokogiri's built-in builder
+gem 'builder' # Builder is faster than Nokogiri's built-in builder
 gem 'nokogiri'
 gem 'nori'
 
@@ -27,21 +28,19 @@ gem 'ruby-sfst', :require => 'sfst'
 gem 'colorize'
 
 group :production, :development do
-  # This is actually incompatible with Rails 3.2.22.x, which has it's own
-  # requirement for a 0.3 version in
-  # activerecord-3.2.22.2/lib/active_record/connection_adapters/mysql2_adapter.rb).
-  # There's an ugly hack in config/application.rb that gets around this by
-  # redefining gem.
-  gem 'mysql2', '~> 0.4.0'
+  gem 'pg', '~> 0.17'
+  gem 'rails_12factor'
 end
 
 gem 'foreman'
 gem 'dotenv'
 gem 'unicorn'
 
-group :development, :test do
+group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'sqlite3'
-  gem 'test-unit'
+  gem 'sqlite3', '~> 1.3.5'
+  gem 'test-unit', '~> 3.0'
 end
+
+ruby '2.6.6'
