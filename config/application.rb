@@ -62,6 +62,7 @@ module Proiel
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    config.assets.precompile = %w[*.js *.js.erb *.css *.sass *.png *.gif]
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.1'
